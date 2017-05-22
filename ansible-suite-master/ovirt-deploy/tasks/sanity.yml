@@ -91,6 +91,14 @@
     export_domain: "{{ export_name }}"
     cluster: "{{ cluster_name }}"
 
+- name: Try to re-register template (Should change nothing)
+  ovirt_templates:
+    auth: "{{ ovirt_auth }}"
+    name: "{{ template_name }}"
+    state: registered
+    storage_domain: "{{ nfs_name }}"
+    cluster: "{{ cluster_name }}"
+
 - name: Hotplug NIC
   ovirt_nics:
     auth: "{{ ovirt_auth }}"
